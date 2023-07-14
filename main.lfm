@@ -1,0 +1,327 @@
+object frmMain: TfrmMain
+  Left = 475
+  Height = 751
+  Top = 192
+  Width = 1223
+  Caption = 'RelocEdit'
+  ClientHeight = 726
+  ClientWidth = 1223
+  Constraints.MinHeight = 600
+  Constraints.MinWidth = 800
+  DesignTimePPI = 120
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -15
+  Font.Name = 'Segoe UI'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Menu = mmMenu
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.2.6.0'
+  object sbMain: TStatusBar
+    Left = 0
+    Height = 29
+    Top = 697
+    Width = 1223
+    Panels = <>
+  end
+  object lvItems: TListView
+    Left = 304
+    Height = 681
+    Top = 8
+    Width = 544
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Columns = <    
+      item
+        Caption = 'Type'
+        Width = 150
+      end    
+      item
+        Caption = 'Address'
+        Width = 150
+      end    
+      item
+        Caption = 'Offset'
+        Width = 150
+      end>
+    HideSelection = False
+    ReadOnly = True
+    RowSelect = True
+    SmallImages = ilMain
+    TabOrder = 1
+    ViewStyle = vsReport
+    OnDblClick = lvItemsDblClick
+    OnSelectItem = lvItemsSelectItem
+  end
+  object lvPages: TListView
+    Left = 8
+    Height = 681
+    Top = 8
+    Width = 288
+    Anchors = [akTop, akLeft, akBottom]
+    Columns = <    
+      item
+        Caption = 'Address'
+        Width = 100
+      end    
+      item
+        Caption = 'Count'
+        Width = 100
+      end>
+    HideSelection = False
+    ReadOnly = True
+    RowSelect = True
+    SmallImages = ilMain
+    SmallImagesWidth = 16
+    TabOrder = 0
+    ViewStyle = vsReport
+    OnDblClick = lvPagesDblClick
+    OnSelectItem = lvPagesSelectItem
+  end
+  object gbxEditor: TGroupBox
+    Left = 856
+    Height = 449
+    Top = 0
+    Width = 360
+    Anchors = [akTop, akRight]
+    Caption = 'Editor'
+    ClientHeight = 424
+    ClientWidth = 356
+    TabOrder = 2
+    object cbxType: TComboBox
+      Left = 72
+      Height = 28
+      Top = 8
+      Width = 272
+      ItemHeight = 20
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object edtItemOffset: TEdit
+      Left = 72
+      Height = 28
+      Top = 48
+      Width = 272
+      TabOrder = 1
+      Text = '0000'
+    end
+    object btnSetTypeAndOffset: TButton
+      Left = 16
+      Height = 32
+      Top = 88
+      Width = 328
+      Caption = 'Set relocation type and offset'
+      Enabled = False
+      OnClick = btnSetTypeAndOffsetClick
+      TabOrder = 2
+    end
+    object btnAddItemBefore: TButton
+      Left = 16
+      Height = 32
+      Top = 168
+      Width = 160
+      Caption = 'Add item (before)'
+      Enabled = False
+      OnClick = btnAddItemClick
+      TabOrder = 5
+    end
+    object Label1: TLabel
+      Left = 16
+      Height = 20
+      Top = 8
+      Width = 34
+      Caption = 'Type:'
+      ParentColor = False
+    end
+    object lblItemOffset: TLabel
+      Left = 16
+      Height = 20
+      Top = 48
+      Width = 43
+      Caption = 'Offset:'
+      ParentColor = False
+    end
+    object btnAddItemAfter: TButton
+      Left = 184
+      Height = 32
+      Top = 168
+      Width = 160
+      Caption = 'Add item (after)'
+      Enabled = False
+      OnClick = btnAddItemClick
+      TabOrder = 6
+    end
+    object btnMoveItemUp: TButton
+      Left = 16
+      Height = 32
+      Top = 128
+      Width = 160
+      Caption = 'Move item up'
+      Enabled = False
+      OnClick = btnMoveItemClick
+      TabOrder = 3
+    end
+    object btnMoveItemDown: TButton
+      Left = 184
+      Height = 32
+      Top = 128
+      Width = 160
+      Caption = 'Move item down'
+      Enabled = False
+      OnClick = btnMoveItemClick
+      TabOrder = 4
+    end
+    object btnDeleteItem: TButton
+      Left = 16
+      Height = 32
+      Top = 208
+      Width = 328
+      Caption = 'Delete item'
+      Enabled = False
+      OnClick = btnDeleteItemClick
+      TabOrder = 7
+    end
+    object btnMovePageUp: TButton
+      Left = 16
+      Height = 32
+      Top = 304
+      Width = 160
+      Caption = 'Move page up'
+      Enabled = False
+      OnClick = btnMovePageClick
+      TabOrder = 8
+    end
+    object btnMovePageDown: TButton
+      Left = 184
+      Height = 32
+      Top = 304
+      Width = 160
+      Caption = 'Move page down'
+      Enabled = False
+      OnClick = btnMovePageClick
+      TabOrder = 9
+    end
+    object btnAddPageBefore: TButton
+      Left = 16
+      Height = 32
+      Top = 344
+      Width = 160
+      Caption = 'Add Page (before)'
+      Enabled = False
+      OnClick = btnAddPageClick
+      TabOrder = 10
+    end
+    object btnAddPageAfter: TButton
+      Left = 184
+      Height = 32
+      Top = 344
+      Width = 160
+      Caption = 'Add Page (after)'
+      Enabled = False
+      OnClick = btnAddPageClick
+      TabOrder = 11
+    end
+    object btnDeletePage: TButton
+      Left = 16
+      Height = 32
+      Top = 384
+      Width = 328
+      Caption = 'Delete page'
+      Enabled = False
+      OnClick = btnDeletePageClick
+      TabOrder = 12
+    end
+    object lblPageOffset: TLabel
+      Left = 16
+      Height = 20
+      Top = 264
+      Width = 43
+      Caption = 'Offset:'
+      ParentColor = False
+    end
+    object edtPageOffset: TEdit
+      Left = 72
+      Height = 28
+      Top = 264
+      Width = 272
+      TabOrder = 13
+      Text = '00000000'
+    end
+  end
+  object mmoInfo: TMemo
+    Left = 856
+    Height = 233
+    Top = 456
+    Width = 360
+    Anchors = [akTop, akRight, akBottom]
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 3
+    WordWrap = False
+  end
+  object mmMenu: TMainMenu
+    Left = 968
+    Top = 648
+    object mmiFile: TMenuItem
+      Caption = 'File'
+      object mmiOpen: TMenuItem
+        Caption = 'Open'
+        ShortCut = 16463
+        OnClick = mmiOpenClick
+      end
+      object mmiSave: TMenuItem
+        Caption = 'Save'
+        ShortCut = 16467
+        OnClick = mmiSaveClick
+      end
+      object mmiClose: TMenuItem
+        Caption = 'Close'
+        OnClick = mmiCloseClick
+      end
+      object mmiSeparator1: TMenuItem
+        Caption = '-'
+      end
+      object mmiQuit: TMenuItem
+        Caption = 'Quit'
+        OnClick = mmiQuitClick
+      end
+    end
+    object mmiTools: TMenuItem
+      Caption = 'Tools'
+      object mmiExportOrigSection: TMenuItem
+        Caption = 'Export original section'
+        OnClick = mmiExportOrigSectionClick
+      end
+      object mmiExportUpdSection: TMenuItem
+        Caption = 'Export updated section'
+        OnClick = mmiExportUpdSectionClick
+      end
+    end
+    object mmiHelp: TMenuItem
+      Caption = 'Help'
+      object mmiAbout: TMenuItem
+        Caption = 'About'
+        OnClick = mmiAboutClick
+      end
+    end
+  end
+  object odMain: TOpenDialog
+    Filter = 'x86 PE files (*.exe, *.dll)|*.exe;*.dll|All files|*'
+    Left = 856
+    Top = 648
+  end
+  object sdMain: TSaveDialog
+    Filter = 'x86 PE files (*.exe, *.dll)|*.exe;*.dll|All files|*'
+    Left = 912
+    Top = 648
+  end
+  object ilMain: TImageList
+    Left = 800
+    Top = 648
+    Bitmap = {
+      4C7A010000001000000010000000210000000000000078DAFBCFF07F14D20002
+      C17F644C895E52CD18EAFA290DBF51483C04001A82DE30
+    }
+  end
+end
